@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+    {{super()}}
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+{% endblock %}
+
+{% block title %}
+    Review - reviewyourreads
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <span class = "green_big">review</span><span class="blue_big">your</span><span class="red_big">reads</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>           
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item bighead_size">
+                    {{name}}
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/dashboard" class="nav-link head_size">DASHBOARD</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link head_size">LOGOUT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    {% if alert == 0: %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            You have already submitted a review for the book '{{bookname[0]}}'! Go back to the <a href = "{{url_for('details', book_isbn=isbn) }}" id="normallink">book page</a>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% elif alert == 1: %}
+        <br><br>
+        <h3 class="center head_size">Submit your review for '{{bookname[0]}}'  here:</h3><br>
+        <form method='POST'> 
+                    
+            <label for="rating" class="center head_size">Rate the book:</label><br>
+            <select id="rating" name="rating" required class="center">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option selected value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <br><br>
+            <span class="center head_size">Say something:</span><br>
+            <div>
+                <textarea name="content" id="content" rows="5" cols="100" placeholder="Write how much you liked the book, do you recommend it or not, etc.." required></textarea>
+            </div>            
+            <br>
+            <button type="submit" class="center" id="review">Submit</button>            
+        </form>
+    {% elif alert == 2: %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Review submitted successfully! Go back to the <a href = "{{url_for('details', book_isbn=isbn) }}" id="normallink">book page</a> 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>    
+    {% endif %}
+{% endblock %}

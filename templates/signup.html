@@ -1,0 +1,225 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+    {{super()}}
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+{% endblock %}
+
+{% block title %}
+    Signup - reviewyourreads
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <span class = "green_big">review</span><span class="blue_big">your</span><span class="red_big">reads</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>           
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="{{url_for('index')}}" class="nav-link head_size">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url_for('login')}}" class="nav-link head_size">LOGIN</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    {% if alert == 0: %}
+        <br><br>
+        <div class="center head_size">
+            SIGNUP:<br>
+        </div>
+        <form action="/signup" method="post">
+            <input name="username" placeholder="Username" type="text" class="center" autocomplete="off" autofocus/>
+            <br>
+            <input name="email" placeholder="Email" type="text" class="center" autofocus/>
+            <br>
+            <input name="password" placeholder="Password" type="password" class="center"/>
+            <br>
+            <input name="confirmation" placeholder="Confirm password" type="password" class="center"/>
+            <br>
+            <button type="submit" class="center">SIGN UP</button>
+        </form>
+    {% elif alert == 1: %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Account has been created successfully! Go ahead and <a href="{{url_for('login')}}">Login</a>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <br><br>
+        <div class="center head_size">
+            SIGNUP:<br>
+        </div>
+        <form action="/signup" method="post">
+            <input name="username" placeholder="Username" type="text" class="center" autocomplete="off" autofocus/>
+            <br>
+            <input name="email" placeholder="Email" type="text" class="center" autofocus/>
+            <br>
+            <input name="password" placeholder="Password" type="password" class="center"/>
+            <br>
+            <input name="confirmation" placeholder="Confirm password" type="password" class="center"/>
+            <br>
+            <button type="submit" class="center">SIGN UP</button>
+        </form>
+    {% elif alert == 2: %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            You must enter username!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <br><br>
+        <div class="center head_size">
+            SIGNUP:<br>
+        </div>
+        <form action="/signup" method="post">
+            <input name="username" placeholder="Username" type="text" class="center" autocomplete="off" autofocus/>
+            <br>
+            <input name="email" placeholder="Email" type="text" class="center" autofocus/>
+            <br>
+            <input name="password" placeholder="Password" type="password" class="center"/>
+            <br>
+            <input name="confirmation" placeholder="Confirm password" type="password" class="center"/>
+            <br>
+            <button type="submit" class="center">SIGN UP</button>
+        </form>
+    {% elif alert == 3: %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            You must enter Email!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <br><br>
+        <div class="center head_size">
+            SIGNUP:<br>
+        </div>
+        <form action="/signup" method="post">
+            <input name="username" placeholder="Username" type="text" class="center" autocomplete="off" autofocus/>
+            <br>
+            <input name="email" placeholder="Email" type="text" class="center" autofocus/>
+            <br>
+            <input name="password" placeholder="Password" type="password" class="center"/>
+            <br>
+            <input name="confirmation" placeholder="Confirm password" type="password" class="center"/>
+            <br>
+            <button type="submit" class="center">SIGN UP</button>
+        </form>
+    {% elif alert == 4: %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            This username already exists! Try another one
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <br><br>
+        <div class="center head_size">
+            SIGNUP:<br>
+        </div>
+        <form action="/signup" method="post">
+            <input name="username" placeholder="Username" type="text" class="center" autocomplete="off" autofocus/>
+            <br>
+            <input name="email" placeholder="Email" type="text" class="center" autofocus>
+            <br>
+            <input name="password" placeholder="Password" type="password" class="center"/>
+            <br>
+            <input name="confirmation" placeholder="Confirm password" type="password" class="center"/>
+            <br>
+            <button type="submit" class="center">SIGN UP</button>
+        </form>
+    {% elif alert == 5: %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            This email id already exists! Try another one
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <br><br>
+        <div class="center head_size">
+            SIGNUP:<br>
+        </div>
+        <form action="/signup" method="post">
+            <input name="username" placeholder="Username" type="text" class="center" autocomplete="off" autofocus/>
+            <br>
+            <input name="email" placeholder="Email" type="text" class="center" autofocus/>
+            <br>
+            <input name="password" placeholder="Password" type="password" class="center"/>
+            <br>
+            <input name="confirmation" placeholder="Confirm password" type="password" class="center"/>
+            <br>
+            <button type="submit" class="center">SIGN UP</button>
+        </form>
+    {% elif alert == 6: %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            You must enter password!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <br><br>
+        <div class="center head_size">
+            SIGNUP:<br>
+        </div>
+        <form action="/signup" method="post">
+            <input name="username" placeholder="Username" type="text" class="center" autocomplete="off" autofocus/>
+            <br>
+            <input name="email" placeholder="Email" type="text" class="center" autofocus/>
+            <br>
+            <input name="password" placeholder="Password" type="password" class="center"/>
+            <br>
+            <input name="confirmation" placeholder="Confirm password" type="password" class="center"/>
+            <br>
+            <button type="submit" class="center">SIGN UP</button>
+        </form>
+    {% elif alert == 7: %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            You must confirm password!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <br><br>
+        <div class="center head_size">
+            SIGNUP:<br>
+        </div>
+        <form action="/signup" method="post">
+            <input name="username" placeholder="Username" type="text" class="center" autocomplete="off" autofocus/>
+            <br>
+            <input name="email" placeholder="Email" type="text" class="center" autofocus/>
+            <br>
+            <input name="password" placeholder="Password" type="password" class="center"/>
+            <br>
+            <input name="confirmation" placeholder="Confirm password" type="password" class="center"/>
+            <br>
+            <button type="submit" class="center">SIGN UP</button>
+        </form>
+    {% elif alert == 8: %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Passwords do not match!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <br><br>
+        <div class="center head_size">
+            SIGNUP:<br>
+        </div>
+        <form action="/signup" method="post">
+            <input name="username" placeholder="Username" type="text" class="center" autocomplete="off" autofocus/>
+            <br>
+            <input name="email" placeholder="Email" type="text" class="center" autofocus/>
+            <br>
+            <input name="password" placeholder="Password" type="password" class="center"/>
+            <br>
+            <input name="confirmation" placeholder="Confirm password" type="password" class="center"/>
+            <br>
+            <button type="submit" class="center">SIGN UP</button>
+        </form>
+    {% endif %}
+{% endblock %}

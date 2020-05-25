@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+    {{super()}}
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+{% endblock %}
+
+{% block title %}
+    Information - reviewyourreads
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <span class = "green_big">review</span><span class="blue_big">your</span><span class="red_big">reads</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>           
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item bighead_size">
+                    {{name}}
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/dashboard" class="nav-link head_size">DASHBOARD</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link head_size">LOGOUT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    <br><br><br>
+    <h1 class="center">{{bookinfo.Title}}</h1>
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <img src="{{imglink}}" class="center-block" alt="Image">
+            </div>
+            <div class="col-sm text-center head_size">
+                ISBN: {{bookinfo.ISBN}}<br>
+                Author: {{bookinfo.Author}}<br>
+                Year: {{bookinfo.Year}}
+                <br>
+            </div>
+            <div class="col-sm text-center head_size">
+                <span id="color_1">Goodreads data:</span><br>
+                Average rating: {{goodreadsAvg}}<br>
+                No of ratings: {{goodreadsNo}}<br>
+                View more info <a href="https://www.goodreads.com/book/show/{{goodreadsId}}">here</a>
+            </div>
+        </div>
+    </div>
+    
+    <br><br>
+    
+    <form action="{{url_for('review', isbn=bookinfo.ISBN)}}" >
+        <button type= "submit" id="info" class="center">Write a review</button>
+    </form>
+    <br><br><br>
+    <div id="userReviews">
+        <h1 class="center head_size"> {{count}} User Review(s): </h1>
+        <br>
+        {% if count == 0: %}
+            <div class="alert alert-info center" role="alert">
+                No one has reviewed this book yet !!
+            </div>
+        {% else: %}
+            {% for review in reviews|reverse: %}
+            <div class="card text-center center">
+                <div class="card-header">
+                    User: {{review.username}} reviewed this book on {{review.created}} GMT
+                </div>
+                <div class="card-body">
+                    <div class="center">
+                        Rated: 
+                        {% if review.rating == 1: %}
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            1/5
+                        {% elif review.rating == 2: %}
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            2/5
+                        {% elif review.rating == 3: %}
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            3/5
+                        {% elif review.rating == 4: %}
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            4/5
+                        {% elif review.rating == 5: %}
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            5/5
+                        {% endif %}
+                    </div>
+                    
+                    <br>
+                    <p class="card-text center">{{review.content}}</p>
+                  
+                </div>
+              </div>    
+            <br>                  
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

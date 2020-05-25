@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+    {{super()}}
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+{% endblock %}
+
+{% block title %}
+    Login - reviewyourreads
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <span class = "green_big">review</span><span class="blue_big">your</span><span class="red_big">reads</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>           
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="{{url_for('index')}}" class="nav-link head_size">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url_for('signup')}}" class="nav-link head_size">SIGNUP</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    {% if alert == 0: %}
+        <br><br>
+        <div class="center head_size">
+            LOGIN:<br>
+        </div>
+        <form action="/login" method="POST">
+            <input autocomplete="off" autofocus name="username" placeholder="Username" type="text" class = "center"/>
+            <br>    
+            <input name="password" placeholder="Password" type="password" class = "center"/>
+            <br>
+            <button type="submit" class = "center">LOGIN</button>
+        </form>    
+    {% elif alert == 1: %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            You must enter username!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <br><br>
+        <div class="center head_size">
+            LOGIN:<br>
+        </div>
+        <form action="/login" method="POST">
+            <input autocomplete="off" autofocus name="username" placeholder="Username" type="text" class = "center"/>
+            <br>    
+            <input name="password" placeholder="Password" type="password" class = "center"/>
+            <br>
+            <button type="submit" class = "center">LOGIN</button>
+        </form>    
+    {% elif alert == 2: %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            You must enter password!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <br><br>
+        <div class="center head_size">
+            LOGIN:<br>
+        </div>
+        <form action="/login" method="POST">
+            <input autocomplete="off" autofocus name="username" placeholder="Username" type="text" class = "center"/>
+            <br>    
+            <input name="password" placeholder="Password" type="password" class = "center"/>
+            <br>
+            <button type="submit" class = "center">LOGIN</button>
+        </form>    
+    {% elif alert==3: %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Invalid credentials! If you haven't signed up already, <a href="{{url_for('signup')}}">Sign up</a> now!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <br><br>
+        <div class="center head_size">
+            LOGIN:<br>
+        </div>
+        <form action="/login" method="POST">
+            <input autocomplete="off" autofocus name="username" placeholder="Username" type="text" class = "center"/>
+            <br>    
+            <input name="password" placeholder="Password" type="password" class = "center"/>
+            <br>
+            <button type="submit" class = "center">LOGIN</button>
+        </form>    
+    {% endif %}
+{% endblock %}

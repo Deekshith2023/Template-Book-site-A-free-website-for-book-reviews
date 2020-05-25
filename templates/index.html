@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+    {{super()}}
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+{% endblock %}
+
+{% block title %}
+    reviewyourreads
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <span class = "green_big">review</span><span class="blue_big">your</span><span class="red_big">reads</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>           
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="{{url_for('login')}}" class="nav-link head_size">LOGIN</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url_for('signup')}}" class="nav-link head_size">SIGNUP</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    <br>
+    <div class = "indexcontent">
+        Welcome to <span class = "green_small">review</span><span class="blue_small">your</span><span class="red_small">reads</span>
+        , a book review website, where you can view 
+        over 5000 books, and more, you can add reviews to the books which are there!!
+        <br><br>
+        <a href="{{url_for('login')}}">Login</a> or <a href="{{url_for('signup')}}">Signup</a> to start right away!!
+    </div>
+{% endblock %}

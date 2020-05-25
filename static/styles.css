@@ -1,0 +1,183 @@
+.indexcontent
+{
+    font-size: 30px;
+    text-align: center;
+}
+
+.center
+{
+    text-align: left;
+    margin: auto;
+    display: table;
+}
+
+.green_big{
+    color: green;
+    font-family: "Courier New";
+    font-size: 50px;
+}
+
+.blue_big{
+    color: blue;
+    font-family: "Courier New";
+    font-size: 50px;
+}
+
+.red_big{
+    color: red;
+    font-family: "Courier New";
+    font-size: 50px;
+}
+
+.green_small{
+    color: green;
+    font-family: "Courier New";
+    font-size: 30px;
+}
+
+.blue_small{
+    color: blue;
+    font-family: "Courier New";
+    font-size: 30px;
+}
+
+.red_small{
+    color: red;
+    font-family: "Courier New";
+    font-size: 30px;
+}
+
+#color_1{
+    color: rgb(149, 212, 31);
+}
+
+.head_size{
+    font-size: 30px;
+}
+
+.bighead_size{
+    font-size: 40px;
+}
+
+input{
+    width: 40%;
+    height: 35px;
+}
+
+button{
+    background-color: rgb(12, 44, 49);
+    color: white;
+    width: 20%;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 120px;
+    transition-duration: 0.4s;
+}
+
+button:hover{
+    background-color: lightblue;
+    color: black;   
+}
+
+#normallink{
+    color: black;
+}
+
+#normallink:hover{
+    text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+    width: 70%;
+}
+
+td{
+    height: 30px;
+}
+  
+table, th, td, tr{
+    text-align: center;
+    border: 1px solid black;
+}
+
+th{
+    height: 45px;
+    background-color: lightskyblue;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+#info{
+    background-color: rgb(12, 44, 49);
+    color: white;
+    width: 75%;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 500px;
+    transition-duration: 0.4s;
+}
+
+#info:hover{
+    background-color: lightblue;
+    color: black;   
+}
+
+.center-block {
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+ }
+ 
+.text-center {
+    text-align:center
+}
+
+.alert{
+    width: 100%;
+    text-align: center;
+}
+
+.card{
+    width: 90%;
+}
+
+.checked {
+    color: orange;
+}
+
+select{
+    width: 50%;
+}
+
+#review{
+    background-color: rgb(12, 44, 49);
+    color: white;
+    width: 60%;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 420px;
+    transition-duration: 0.4s;
+}
+
+#review:hover{
+    background-color: lightblue;
+    color: black;  
+}
+
+#rating{
+    width: 20%;
+}
+
+#content{
+    height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;    
+}

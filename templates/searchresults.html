@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+    {{super()}}
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+{% endblock %}
+
+{% block title %}
+    Search - reviewyourreads
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <span class = "green_big">review</span><span class="blue_big">your</span><span class="red_big">reads</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>           
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item bighead_size">
+                    {{name}}
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/dashboard" class="nav-link head_size">DASHBOARD</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link head_size">LOGOUT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    {% if alert == 1: %}
+        <div class="alert alert-warning alert-dismissible fade show cross" role="alert">
+            {% if not find: %}
+                Please enter a valid detail!
+            {% else: %}
+                Can't find any book for '{{find}}'! Either you have entered invalid detail, or that book is unavailable. Please try again.. 
+            {% endif %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <br><br><br>
+        <h3 class="center">Search for a book!</h3>
+        <br>
+        <form action='/dashboard/search' method="GET">
+            <input type="text"  class="center" name="book" autofocus aria-describedby="bookHelp" placeholder="ISBN, Title, Author or Year"><br>
+            <button type="submit" class="center">Search</button>
+        </form>
+
+    {% elif alert == 0: %}
+        <br><br><br>
+        <h3 class="center">Search for a book!</h3>
+        <br>
+        <form action='/dashboard/search' method="GET">
+            <input type="text"  class="center" name="book" autofocus aria-describedby="bookHelp" placeholder="ISBN, Title, Author or Year"><br>
+            <button type="submit" class="center">Search</button>
+        </form>
+        <br><br>
+        <div class="center head_size">
+            {{count}} result(s) for '{{find}}'
+        </div>
+        <div class="center">
+            Click on the detail of a book to learn more about that book..
+        </div>
+        <br>
+        <table class="center">
+            <tr>
+                <th>ISBN</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+            </tr>
+                
+            {% for book in books: %}
+                <tr>
+                    <td><a href = "{{url_for('details', book_isbn=book.ISBN) }}" id="normallink">{{book.ISBN}}</a></td>
+                    <td><a href = "{{url_for('details', book_isbn=book.ISBN) }}" id="normallink">{{book.Title}}</a></td>
+                    <td><a href = "{{url_for('details', book_isbn=book.ISBN) }}" id="normallink">{{book.Author}}</a></td>
+                    <td><a href = "{{url_for('details', book_isbn=book.ISBN) }}" id="normallink">{{book.Year}}</a></td>
+                </tr>
+            {%endfor%}  
+                
+        </table>
+   {% endif %}
+    
+    <br>
+    
+    
+{% endblock %}
