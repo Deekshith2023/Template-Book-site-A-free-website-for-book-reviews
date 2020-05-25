@@ -1,1 +1,1 @@
-web: gunicorn application:reviewyourreads
+web: gunicorn application:app
