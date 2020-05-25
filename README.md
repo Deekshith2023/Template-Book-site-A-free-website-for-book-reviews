@@ -9,7 +9,7 @@ Also, you can make api reqests to the website in the ```/api/<isbn>``` route, wh
 
 To run the application, go inside the project1 directory in the command terminal and run the following commands:
  -  set FLASK_APP=application.py
- -  set DATABASE_URL=postgres://xpeaulqenohknd:e1c341912c325d8813859997c97a1f258f72c8abb3aba782036f24a5eca93d98@ec2-34-194-198-176.com<span>pute-1.amazo</span>naws.com:5432/d436ifs3lnrdui
+ -  set DATABASE_URL=postgres://xpeaulqenohknd:e1c341912c325d8813859997c97a1f258f72c8abb3aba782036f24a5eca93d98@ec2-34-194-198-1<span>76.compute-1.amazon</span>aws.com:5432/d436ifs3lnrdui
  -  set FLASK_DEBUG=1
  -  set FLASK_ENV=development
  -  flask run     
