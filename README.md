@@ -3,7 +3,7 @@ reviewyourreads is a book review website, where you can have access to the detai
 You can also add reviews to the books and can read the reviews which others have left. But one user cannot add multiple reviews to the same book.  
 Also, you can make api reqests to the website in the ```/api/<isbn>``` route, which will return a json object with the details of the book.
 
-To run the application locally, go inside the project1 directory in the command terminal and run the following commands(assuming python has been installed):
+To run the application locally, go inside the reviewyourreads directory in the command terminal and run the following commands(assuming python has been installed):
  -  pip3 install -r requirements.txt   
  -  set FLASK_APP=application.py
  -  set DATABASE_URL=your_database_url
