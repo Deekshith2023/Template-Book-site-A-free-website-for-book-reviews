@@ -21,4 +21,5 @@ Contributions are always welcome! You can open issues or pull requests for any c
  - Making the website responsive. It currently looks OK only on desktop screens.
  - Improving the UI
  - Sorting search results in order of the relevance of the book.
+ 
  Feel free to add/suggest ideas of your own!
