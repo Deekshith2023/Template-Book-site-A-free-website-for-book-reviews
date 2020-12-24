@@ -14,6 +14,7 @@ To run the application locally, go inside the reviewyourreads directory in the c
  -  flask run     
 And go to the website shown in a web browser. 
 
+A live demo of the project can be seen in [this video](https://www.youtube.com/watch?v=nT2MdSfuj5Q).   
 To visit the site online, visit https://reviewyourreads.herokuapp.com/
 
 ### Contributing:    
